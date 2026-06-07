@@ -61,3 +61,15 @@ GROUP BY
     c.first_name,
     c.last_name
 ORDER BY total_orders ;
+
+-- Purchasing Intensity by Country (Sales Quantity per Customer)
+SELECT
+    c.country,
+    COUNT(DISTINCT f.customer_key) AS total_customers,
+    SUM(f.quantity) AS total_quantity,
+    ROUND(CAST(SUM(f.quantity) AS FLOAT) / COUNT(DISTINCT f.customer_key), 2) AS quantity_per_customer
+FROM gold.fact_sales f
+LEFT JOIN gold.dim_customers c
+    ON c.customer_key = f.customer_key
+GROUP BY c.country
+ORDER BY quantity_per_customer DESC;
