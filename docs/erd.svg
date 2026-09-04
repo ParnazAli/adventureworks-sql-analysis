@@ -1,0 +1,56 @@
+<svg viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#555"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="900" height="480" fill="#ffffff"/>
+  <text x="450" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#1e2327">gold layer — star schema (AdventureWorks)</text>
+
+  <!-- dim_customers -->
+  <rect x="40" y="90" width="260" height="230" rx="6" fill="#eef4fb" stroke="#3b6ea5" stroke-width="1.5"/>
+  <rect x="40" y="90" width="260" height="34" rx="6" fill="#3b6ea5"/>
+  <text x="170" y="113" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">gold.dim_customers</text>
+  <text x="55" y="146" font-size="12.5" fill="#1e2327">🔑 customer_key (PK)</text>
+  <text x="55" y="168" font-size="12.5" fill="#1e2327">customer_number</text>
+  <text x="55" y="190" font-size="12.5" fill="#1e2327">first_name</text>
+  <text x="55" y="212" font-size="12.5" fill="#1e2327">last_name</text>
+  <text x="55" y="234" font-size="12.5" fill="#1e2327">birthdate</text>
+  <text x="55" y="256" font-size="12.5" fill="#1e2327">gender</text>
+  <text x="55" y="278" font-size="12.5" fill="#1e2327">country</text>
+
+  <!-- fact_sales -->
+  <rect x="340" y="150" width="260" height="180" rx="6" fill="#fdf3e3" stroke="#b8792f" stroke-width="1.5"/>
+  <rect x="340" y="150" width="260" height="34" rx="6" fill="#b8792f"/>
+  <text x="470" y="173" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">gold.fact_sales</text>
+  <text x="355" y="206" font-size="12.5" fill="#1e2327">order_number</text>
+  <text x="355" y="228" font-size="12.5" fill="#1e2327">order_date</text>
+  <text x="355" y="250" font-size="12.5" fill="#1e2327">🔗 customer_key (FK)</text>
+  <text x="355" y="272" font-size="12.5" fill="#1e2327">🔗 product_key (FK)</text>
+  <text x="355" y="294" font-size="12.5" fill="#1e2327">sales_amount · quantity · price</text>
+
+  <!-- dim_products -->
+  <rect x="640" y="90" width="230" height="230" rx="6" fill="#eef7ee" stroke="#3f8f4f" stroke-width="1.5"/>
+  <rect x="640" y="90" width="230" height="34" rx="6" fill="#3f8f4f"/>
+  <text x="755" y="113" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">gold.dim_products</text>
+  <text x="655" y="146" font-size="12.5" fill="#1e2327">🔑 product_key (PK)</text>
+  <text x="655" y="168" font-size="12.5" fill="#1e2327">product_name</text>
+  <text x="655" y="190" font-size="12.5" fill="#1e2327">category</text>
+  <text x="655" y="212" font-size="12.5" fill="#1e2327">subcategory</text>
+  <text x="655" y="234" font-size="12.5" fill="#1e2327">cost</text>
+
+  <!-- relationships -->
+  <line x1="300" y1="230" x2="340" y2="230" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="308" y="222" font-size="11" fill="#555">1 : N</text>
+
+  <line x1="640" y1="220" x2="600" y2="220" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="600" y="212" font-size="11" fill="#555">N : 1</text>
+
+  <!-- downstream reporting views -->
+  <rect x="240" y="390" width="420" height="60" rx="6" fill="#f4f0fb" stroke="#7350a8" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="450" y="414" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#4a2e78">gold.report_customers  ·  gold.report_products</text>
+  <text x="450" y="434" text-anchor="middle" font-size="11" fill="#4a2e78">(reusable views built on top of the star schema above)</text>
+
+  <line x1="450" y1="330" x2="450" y2="388" stroke="#7350a8" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+</svg>
