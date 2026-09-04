@@ -145,9 +145,28 @@ adventureworks-sql-analysis/
 
 ## About This Project
 
-`[TODO — a few sentences in your own words: why you chose this dataset, what
-you found most interesting or challenging, what you'd add next (e.g. a
-stored procedure to refresh the reports, or a data-quality test suite).]`
+I built this project to move beyond tutorial-style SQL exercises and
+practice the kind of structured, business-driven thinking that real data
+analysis requires. Rather than jumping straight to complex queries, I
+deliberately followed a three-stage workflow — explore the schema first,
+then analyze patterns, then package the findings into reusable reporting
+views — because that discipline is what separates a collection of scripts
+from an actual analysis.
+
+The most challenging (and most valuable) part was translating vague
+business questions into precise, defensible logic: deciding exactly what
+makes a customer "VIP" versus "Regular," or what threshold separates a
+"High-Performer" product from the rest. Those decisions forced me to think
+like a stakeholder, not just a query writer, and to document every
+assumption so the logic could be reviewed and challenged rather than taken
+on faith.
+
+If I continued this project, I'd add a lightweight data-quality test suite
+(checking for orphaned foreign keys, negative sales amounts, and duplicate
+order lines before the reporting views run) and wrap the
+`gold.report_customers` / `gold.report_products` refresh into a scheduled
+stored procedure, so the reporting layer stays current without manual
+reruns.
 
 ## Author
 
