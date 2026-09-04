@@ -152,4 +152,4 @@ stored procedure to refresh the reports, or a data-quality test suite).]`
 ## Author
 
 **Parnaz Ali**
-[LinkedIn](https://www.linkedin.com/in/parnaz-ali-90767a248) · [GitHub](https://github.com/ParnazAli)
+[GitHub](https://github.com/ParnazAli)
