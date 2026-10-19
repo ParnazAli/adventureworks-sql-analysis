@@ -60,24 +60,6 @@ thresholds, age groups, derived metrics) are documented in
 | 5 | Which countries show unusually high purchasing intensity relative to their customer base size? | [`06_ranking_analysis.sql`](./scripts/02_analysis/06_ranking_analysis.sql) |
 | 6 | Which product categories generate revenue disproportionately high relative to their share of the product catalog? | [`11_part_to_whole_analysis.sql`](./scripts/02_analysis/11_part_to_whole_analysis.sql) |
 
-## Sample Insights
-
-> **Note:** the figures below are placeholders. Run the scripts referenced
-> against your own restored AdventureWorks instance and replace each `[TODO]`
-> with the actual result — real, sourced numbers are far more convincing to
-> a reader than generic ones.
-
-- **Customer loyalty:** `[TODO]`% of customers are classified as VIP, yet
-  they contribute `[TODO]`% of total revenue *(source: `10_data_segmentation.sql`)*.
-- **Category efficiency:** the `[TODO]` category has the highest
-  `revenue_efficiency_ratio`, meaning it earns a disproportionately large
-  share of revenue relative to its share of the catalog *(source: `11_part_to_whole_analysis.sql`)*.
-- **Market intensity:** `[TODO]` shows the highest quantity purchased per
-  customer, indicating stronger buying intensity than larger markets
-  *(source: `06_ranking_analysis.sql`)*.
-- **Product performance:** `[TODO]`% of products are classified as
-  High-Performers, generating `[TODO]`% of total product revenue
-  *(source: `13_report_products.sql`)*.
 
 ## Project Structure
 
