@@ -1,135 +1,239 @@
 <div align="center">
 
-# ADVENTUREWORKS
-### SQL FIELD NOTES
+<img src="./docs/hero.svg" alt="AdventureWorks SQL analysis — data in motion" width="100%" />
 
-**From sales tables to business answers**
+<br/>
 
-<sub>SQL SERVER · T-SQL · CUSTOMER & PRODUCT ANALYSIS</sub>
+<img src="https://img.shields.io/badge/SQL%20SERVER-T--SQL-f3a45b?style=flat-square&logo=microsoftsqlserver&logoColor=111820" alt="SQL Server T-SQL" />
+<img src="https://img.shields.io/badge/ANALYTICS-13%20SQL%20SCRIPTS-263746?style=flat-square" alt="13 SQL scripts" />
+<img src="https://img.shields.io/badge/OUTPUT-2%20REPORTING%20VIEWS-263746?style=flat-square" alt="2 reporting views" />
+<img src="https://img.shields.io/badge/LICENSE-MIT-263746?style=flat-square" alt="MIT License" />
 
-<img src="https://img.shields.io/badge/SQL%20SERVER-T--SQL-CC4B24?style=for-the-badge&logo=microsoftsqlserver&logoColor=white" alt="SQL Server and T-SQL" />
-<img src="https://img.shields.io/badge/PROJECT-MIT%20LICENSE-D6A84F?style=for-the-badge" alt="MIT License" />
+### A practical SQL case study in customer, product, and sales analysis.
+
+[Explore the questions](#-questions-worth-asking) · [Inspect the data model](#-inside-the-model) · [Run the project](#-run-it-yourself)
 
 </div>
 
 ---
 
-> **THE BRIEF**
->
-> How can raw sales tables become useful business answers? This project explores AdventureWorks, a fictional bicycle manufacturer and retailer, and turns its data into analytical queries and reusable customer and product reports—using SQL from start to finish.
+<table>
+<tr>
+<td width="58%" valign="top">
 
-## 01 / The workflow
+### THE INVESTIGATION
 
-| PHASE | WHAT HAPPENS |
+Raw transactions rarely explain the business on their own. This project uses the **AdventureWorks bicycle business** to explore sales patterns, compare performance over time, segment customers, and turn query logic into reusable reporting views.
+
+The emphasis is not just on writing SQL that runs. It is on asking a business question, choosing a defensible calculation, and making the result reusable.
+
+</td>
+<td width="42%" valign="top">
+
+### PROJECT AT A GLANCE
+
+| | |
 |:--|:--|
-| **01 — Explore** | Inspect tables, dimensions, date ranges, and measures |
-| **02 — Analyze** | Investigate rankings, trends, cumulative values, segments, and performance |
-| **03 — Report** | Consolidate findings into reusable customer and product views |
+| **Database** | SQL Server |
+| **Language** | T-SQL |
+| **Workflow** | Explore → Analyze → Report |
+| **Analytical focus** | Sales · Customers · Products |
+| **Final outputs** | Customer and product views |
 
-<details>
-<summary><strong>Project scope</strong></summary>
+</td>
+</tr>
+</table>
 
-- **Source:** Microsoft AdventureWorks / Adventure Works Cycles
-- **Domain:** Bicycle manufacturing and retail
-- **Focus:** Products, customers, and sales transactions across multiple years
-- **Tooling:** SQL Server and T-SQL; no external BI tool, notebook, or scripting language is used in the workflow
+## ◇ The route through the data
 
-</details>
+<table>
+<tr>
+<td width="33%" valign="top">
 
-## 02 / The data model
+**<sub>STAGE 01</sub>**
 
-The analysis uses a small star schema: one sales fact table and two dimensions. Reporting views sit above the core model.
+### Discover
+
+Understand the database before analyzing it.
+
+- Inspect tables and dimensions
+- Check date ranges
+- Identify available measures
+
+</td>
+<td width="33%" valign="top">
+
+**<sub>STAGE 02</sub>**
+
+### Investigate
+
+Use SQL to uncover patterns and differences.
+
+- Rankings and magnitude
+- Changes over time
+- Cumulative and relative performance
+- Customer segmentation
+
+</td>
+<td width="33%" valign="top">
+
+**<sub>STAGE 03</sub>**
+
+### Package
+
+Move from one-off queries to repeatable outputs.
+
+- Build customer profiles
+- Build product summaries
+- Create reporting views
+
+</td>
+</tr>
+</table>
+
+## ◇ Inside the model
+
+The analytical layer is organized around a sales fact table and customer/product dimensions. The reporting views combine useful attributes and derived measures for downstream analysis.
 
 <div align="center">
 
-<img src="./docs/erd.svg" alt="AdventureWorks SQL entity relationship diagram" width="96%" />
+<img src="./docs/erd.svg" alt="Entity relationship diagram for the AdventureWorks analytical model" width="100%" />
 
-<sub>FIG. 01 — Core analytical tables and relationships</sub>
+<sub><b>FIG. 01</b> — Core analytical model · See the <a href="./docs/data_dictionary.md">data dictionary</a> for column definitions, derived metrics, and segmentation rules.</sub>
 
 </div>
 
-| DATABASE OBJECT | ROLE |
+<table>
+<tr><th align="left">OBJECT</th><th align="left">WHAT IT CONTRIBUTES</th></tr>
+<tr><td><code>gold.fact_sales</code></td><td>Transaction-level sales measures</td></tr>
+<tr><td><code>gold.dim_customers</code></td><td>Customer attributes for profiling and segmentation</td></tr>
+<tr><td><code>gold.dim_products</code></td><td>Product attributes for product-level comparisons</td></tr>
+<tr><td><code>gold.report_customers</code></td><td>A consolidated customer reporting view</td></tr>
+<tr><td><code>gold.report_products</code></td><td>A consolidated product reporting view</td></tr>
+</table>
+
+## ◇ Questions worth asking
+
+<sub>Each question links directly to the SQL script used to investigate it.</sub>
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**01 / PERFORMANCE**
+
+### Is a product doing better than its own history?
+
+Compare product performance with historical averages and prior-year results.
+
+[Open performance analysis ↗](./scripts/02_analysis/09_performance_analysis.sql)
+
+</td>
+<td width="50%" valign="top">
+
+**02 / TIME**
+
+### How do sales build over time?
+
+Use cumulative calculations to examine sales and average-price patterns.
+
+[Open cumulative analysis ↗](./scripts/02_analysis/08_cumulative_analysis.sql)
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+**03 / CUSTOMER VALUE**
+
+### Who are the VIP, Regular, and New customers?
+
+Apply spending and loyalty logic to classify customer behavior.
+
+[Open customer segmentation ↗](./scripts/02_analysis/10_data_segmentation.sql)
+
+</td>
+<td width="50%" valign="top">
+
+**04 / CUSTOMER PROFILES**
+
+### What does each customer's profile reveal?
+
+Combine demographic and behavioral attributes into a reusable view.
+
+[Open customer report ↗](./scripts/03_reports/12_report_customers.sql)
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+**05 / GEOGRAPHY**
+
+### Where is purchasing intensity unusually high?
+
+Rank countries relative to their customer base instead of comparing raw totals alone.
+
+[Open ranking analysis ↗](./scripts/02_analysis/06_ranking_analysis.sql)
+
+</td>
+<td width="50%" valign="top">
+
+**06 / PRODUCT MIX**
+
+### Which categories punch above their weight?
+
+Compare each category's revenue contribution with its share of the product catalog.
+
+[Open part-to-whole analysis ↗](./scripts/02_analysis/11_part_to_whole_analysis.sql)
+
+</td>
+</tr>
+</table>
+
+## ◇ SQL, used with intent
+
+| TOOL / PATTERN | WHY IT IS HERE |
 |:--|:--|
-| `gold.fact_sales` | Sales transactions and measures |
-| `gold.dim_customers` | Customer attributes for profiling and segmentation |
-| `gold.dim_products` | Product attributes for product-level analysis |
-| `gold.report_customers` | Consolidated customer reporting view |
-| `gold.report_products` | Consolidated product reporting view |
+| **CTEs** | Break multi-step logic into readable stages |
+| **Window functions** — `RANK()`, `LAG()` | Compare entities and periods without losing row-level context |
+| **Running totals & moving averages** | Reveal cumulative patterns and smooth short-term variation |
+| **`CASE WHEN`** | Turn business rules into explicit categories |
+| **Date functions** | Calculate time-based measures |
+| **`NULLIF` and zero guards** | Avoid invalid division |
+| **`CREATE VIEW`** | Make reporting logic reusable |
+| **Magnitude, performance & part-to-whole analysis** | Examine scale, change, and relative contribution |
 
-Column definitions, segmentation thresholds, age groups, and derived metrics are documented in the [data dictionary](./docs/data_dictionary.md).
+## ◇ Run it yourself
 
-## 03 / Questions behind the queries
-
-<details open>
-<summary><strong>01–03 · Performance, time, and loyalty</strong></summary>
-
-**How does each product perform against its historical average and last year's results?**
-
-→ [Performance analysis](./scripts/02_analysis/09_performance_analysis.sql)
-
-**How do cumulative sales and average prices change over time?**
-
-→ [Cumulative analysis](./scripts/02_analysis/08_cumulative_analysis.sql)
-
-**Which customers are VIP, Regular, or New based on spending and loyalty?**
-
-→ [Customer segmentation](./scripts/02_analysis/10_data_segmentation.sql)
-
-</details>
+1. Restore the AdventureWorks database in SQL Server, or adapt the `gold` schema references to your own equivalent model.
+2. Run the scripts in folder order: `01_exploratory` → `02_analysis` → `03_reports`. Follow the numbered filenames within each folder.
+3. The reporting scripts create `gold.report_customers` and `gold.report_products`.
 
 <details>
-<summary><strong>04–06 · Customer profiles, rankings, and product mix</strong></summary>
+<summary><b>Open the project map</b></summary>
 
-**What does each customer's behavioral and demographic profile look like?**
+```text
+adventureworks-sql-analysis/
+├── docs/
+│   ├── hero.svg
+│   ├── erd.svg
+│   └── data_dictionary.md
+├── scripts/
+│   ├── 01_exploratory/
+│   ├── 02_analysis/
+│   └── 03_reports/
+├── LICENSE
+└── README.md
+```
 
-→ [Customer report](./scripts/03_reports/12_report_customers.sql)
-
-**Which countries show unusually high purchasing intensity relative to their customer base?**
-
-→ [Ranking analysis](./scripts/02_analysis/06_ranking_analysis.sql)
-
-**Which product categories generate revenue disproportionately high relative to their share of the catalog?**
-
-→ [Part-to-whole analysis](./scripts/02_analysis/11_part_to_whole_analysis.sql)
-
-</details>
-
-## 04 / SQL techniques in practice
-
-| TECHNIQUE | PURPOSE |
-|:--|:--|
-| CTEs | Structure multi-step queries |
-| Window functions such as `RANK()` and `LAG()` | Rank entities and compare periods |
-| Running totals and moving averages | Examine cumulative patterns and trends |
-| `CASE WHEN` | Define segments and business classifications |
-| Date functions | Support time-based calculations |
-| `NULLIF` and zero guards | Handle division safely |
-| `CREATE VIEW` | Package logic into reusable reports |
-| Magnitude, performance, and part-to-whole analysis | Compare scale, change, and relative contribution |
-
-## 05 / Repository map
-
-<details>
-<summary><strong>Browse the scripts</strong></summary>
-
-    adventureworks-sql-analysis/
-    ├── docs/
-    │   ├── erd.svg
-    │   └── data_dictionary.md
-    ├── scripts/
-    │   ├── 01_exploratory/
-    │   ├── 02_analysis/
-    │   └── 03_reports/
-    ├── LICENSE
-    └── README.md
-
-**Exploratory scripts**
+**Exploratory**
 - `01_database_exploration.sql`
 - `02_dimensions_exploration.sql`
 - `03_date_range_exploration.sql`
 - `04_measures_exploration.sql`
 
-**Analysis scripts**
+**Analysis**
 - `05_magnitude_analysis.sql`
 - `06_ranking_analysis.sql`
 - `07_change_over_time_analysis.sql`
@@ -138,36 +242,30 @@ Column definitions, segmentation thresholds, age groups, and derived metrics are
 - `10_data_segmentation.sql`
 - `11_part_to_whole_analysis.sql`
 
-**Reporting scripts**
+**Reporting**
 - `12_report_customers.sql`
 - `13_report_products.sql`
 
 </details>
 
-## 06 / Run the project
-
-1. Restore AdventureWorks on SQL Server, or adapt the `gold` schema references to your equivalent star schema.
-2. Execute scripts in order: `01_exploratory`, `02_analysis`, then `03_reports`. Follow numeric filename order inside each folder.
-3. The final scripts create `gold.report_customers` and `gold.report_products` for consolidated reporting.
-
-## 07 / Caveats & next steps
+## ◇ Assumptions, limits, next moves
 
 <details>
-<summary><strong>Implementation notes</strong></summary>
+<summary><b>What I would revisit before production use</b></summary>
 
-- Customer segmentation logic is duplicated in `10_data_segmentation.sql` and `12_report_customers.sql`; thresholds must be maintained in both if they change.
-- Monetary values are treated as a single currency because the dataset carries no currency code.
-- Recency, age, and lifespan figures use `GETDATE()`, so they change over time instead of using a fixed reporting date.
+- Customer segmentation logic is duplicated in `10_data_segmentation.sql` and `12_report_customers.sql`. If thresholds change, both places need updating.
+- Monetary values are treated as one currency because the dataset has no currency code.
+- Recency, age, and lifespan use `GETDATE()`, so values change with the run date rather than a fixed reporting date.
+
+**Next iteration:** add data-quality checks for orphaned foreign keys, negative sales amounts, and duplicate order lines; then establish a refresh schedule for the reporting views.
 
 </details>
 
-**Next improvement:** add data-quality checks for orphaned foreign keys, negative sales amounts, and duplicate order lines, then schedule the reporting-view refresh.
+## ◇ A note on the work
 
-## 08 / Project reflection
+I built this project to move beyond isolated SQL exercises and practice the full analytical sequence: understand the data, translate business questions into explicit logic, and package the results for reuse.
 
-I built this project to move beyond tutorial-style SQL exercises and practice the structured thinking that business analysis requires. The workflow—explore the schema, analyze patterns, then package findings into reporting views—helped me approach the work as an end-to-end analysis rather than a collection of queries.
-
-The most valuable challenge was translating broad business questions into precise, defensible logic: what makes a customer “VIP” rather than “Regular,” or a “High-Performer” product rather than an average one? Those decisions require clear business definitions, documented assumptions, and logic that can be reviewed—not simply a query that runs.
+The hardest part is often not the syntax. It is deciding what a label such as “VIP” or “High-Performer” should mean, documenting the assumptions behind it, and making sure another person can inspect the logic. A query can execute successfully and still answer the wrong question.
 
 ---
 
@@ -175,6 +273,6 @@ The most valuable challenge was translating broad business questions into precis
 
 **Parnaz Ali** · [GitHub profile](https://github.com/ParnazAli)
 
-<sub>MIT License · See <a href="./LICENSE">LICENSE</a> for details.</sub>
+<sub>Built with SQL Server and T-SQL · Distributed under the MIT License</sub>
 
 </div>
