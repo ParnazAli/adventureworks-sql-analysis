@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+<title id="title">AdventureWorks SQL analysis — data in motion</title>
+<desc id="desc">Dark editorial cover with technical grid, SQL query lines, a rising sales line chart and abstract bicycle-wheel rings.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#111820"/><stop offset="1" stop-color="#202b35"/></linearGradient>
+  <linearGradient id="line" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#f3a45b"/><stop offset="1" stop-color="#f4d28a"/></linearGradient>
+  <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="#b8c5cc" stroke-opacity=".09" stroke-width="1"/></pattern>
+</defs>
+<rect width="1200" height="420" rx="18" fill="url(#bg)"/>
+<rect width="1200" height="420" rx="18" fill="url(#grid)"/>
+<rect x="48" y="42" width="1104" height="336" rx="12" fill="none" stroke="#d4dee4" stroke-opacity=".18"/>
+<text x="78" y="88" fill="#f3a45b" font-family="monospace" font-size="15" letter-spacing="4">FIELD STUDY / 001</text>
+<text x="76" y="166" fill="#f5f2eb" font-family="Arial,Helvetica,sans-serif" font-size="68" font-weight="700" letter-spacing="-2">ADVENTUREWORKS</text>
+<text x="80" y="212" fill="#dce5e8" font-family="monospace" font-size="25" letter-spacing="5">SQL ANALYSIS · DATA IN MOTION</text>
+<path d="M80 250H510" stroke="#f3a45b" stroke-width="3"/>
+<text x="80" y="286" fill="#b9c8d0" font-family="Arial,Helvetica,sans-serif" font-size="18">From raw transactions to business-ready views.</text>
+<text x="80" y="324" fill="#f3a45b" font-family="monospace" font-size="14">SQL SERVER  /  T-SQL  /  CUSTOMER + PRODUCT INSIGHTS</text>
+<g transform="translate(760 92)">
+  <circle cx="250" cy="122" r="114" fill="none" stroke="#e6edf0" stroke-opacity=".18" stroke-width="2"/>
+  <circle cx="250" cy="122" r="83" fill="none" stroke="#e6edf0" stroke-opacity=".13" stroke-width="2"/>
+  <circle cx="250" cy="122" r="49" fill="none" stroke="#e6edf0" stroke-opacity=".10" stroke-width="2"/>
+  <path d="M136 122H364M250 8V236M169 41L331 203M169 203L331 41" stroke="#dce5e8" stroke-opacity=".12" stroke-width="1.5"/>
+  <path d="M133 184 L177 160 L215 169 L253 119 L288 134 L326 76 L367 51" fill="none" stroke="url(#line)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#f3a45b"><circle cx="133" cy="184" r="5"/><circle cx="177" cy="160" r="5"/><circle cx="215" cy="169" r="5"/><circle cx="253" cy="119" r="5"/><circle cx="288" cy="134" r="5"/><circle cx="326" cy="76" r="5"/><circle cx="367" cy="51" r="5"/></g>
+  <rect x="8" y="245" width="470" height="56" rx="8" fill="#0c1116" stroke="#71828d" stroke-opacity=".4"/>
+  <circle cx="30" cy="265" r="4" fill="#f3a45b"/><circle cx="44" cy="265" r="4" fill="#d8b56d"/><circle cx="58" cy="265" r="4" fill="#8fb8bd"/>
+  <text x="26" y="286" fill="#b9c8d0" font-family="monospace" font-size="13">SELECT insight FROM sales WHERE signal = 'useful';</text>
+</g>
+<text x="1108" y="354" fill="#8798a2" font-family="monospace" font-size="12" text-anchor="end">01 / EXPLORE — 02 / ANALYZE — 03 / REPORT</text>
+</svg>
